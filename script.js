@@ -23,7 +23,7 @@ function calculate() {
         document.write("?");
         return;
     }
-    
+
     let pregnancyWeek = calcPregnancyWeek(birthDate);
     let daysTillBirth = calcDaysTillBirth(birthDate);
     let weeksUntil = Math.floor(daysTillBirth / 7);
@@ -34,7 +34,7 @@ function calculate() {
     document.getElementById("pregnancyWeek").innerHTML = pregnancyWeek;
     document.getElementById("weeksPregnant").innerHTML = "(" + weeksPregnant + " Wochen + " + daysPregnant + " Tage)";
     document.getElementById("daysLeft").innerHTML = "noch " + weeksUntil + " Woche(n) und " + daysUntil + " Tag(e) &#128118;";
-    
+
     document.getElementById("infoDiv").style.display = "block"
     document.getElementById("dateList").style.display = "block"
 
@@ -54,6 +54,14 @@ function calculate() {
     firstTrimesterToDate.setDate(firstTrimesterToDate.getDate() + firstTrimesterWeeksTo * 7 + 7);
     document.getElementById("firstTrimesterFrom").innerHTML = dateToGermanString(firstTrimesterFromDate);
     document.getElementById("firstTrimesterTo").innerHTML = dateToGermanString(firstTrimesterToDate);
+    let row = document.getElementById("firstTrimesterRow");
+    if (today >= firstTrimesterToDate)
+        row.style.background = "tomato";
+    else if (today >= firstTrimesterFromDate)
+        row.style.background = "orange";
+    else
+        row.style.background = "transparent";
+
 
     let chorionicFromDate = new Date(fertilizationDate);
     let chorionicToDate = new Date(fertilizationDate);
@@ -61,6 +69,13 @@ function calculate() {
     chorionicToDate.setDate(chorionicToDate.getDate() + chorionicWeeksTo * 7 + 7);
     document.getElementById("chorionicFrom").innerHTML = dateToGermanString(chorionicFromDate);
     document.getElementById("chorionicTo").innerHTML = dateToGermanString(chorionicToDate);
+    row = document.getElementById("chorionicRow");
+    if (today >= chorionicToDate)
+        row.style.background = "tomato";
+    else if (today >= chorionicFromDate)
+        row.style.background = "orange";
+    else
+        row.style.background = "transparent";
 
     let malformationFromDate = new Date(fertilizationDate);
     let malformationToDate = new Date(fertilizationDate);
@@ -68,6 +83,13 @@ function calculate() {
     malformationToDate.setDate(malformationToDate.getDate() + malformationWeeksTo * 7 + 7);
     document.getElementById("malformationFrom").innerHTML = dateToGermanString(malformationFromDate);
     document.getElementById("malformationTo").innerHTML = dateToGermanString(malformationToDate);
+    row = document.getElementById("malformationRow");
+    if (today >= malformationToDate)
+        row.style.background = "tomato";
+    else if (today >= malformationFromDate)
+        row.style.background = "orange";
+    else
+        row.style.background = "transparent";
 
     let amniocentesisFromDate = new Date(fertilizationDate);
     let amniocentesisToDate = new Date(fertilizationDate);
@@ -75,6 +97,13 @@ function calculate() {
     amniocentesisToDate.setDate(amniocentesisToDate.getDate() + amniocentesisWeeksTo * 7 + 7);
     document.getElementById("amniocentesisFrom").innerHTML = dateToGermanString(amniocentesisFromDate);
     document.getElementById("amniocentesisTo").innerHTML = dateToGermanString(amniocentesisToDate);
+    row = document.getElementById("amniocentesisRow");
+    if (today >= amniocentesisToDate)
+        row.style.background = "tomato";
+    else if (today >= amniocentesisFromDate)
+        row.style.background = "orange";
+    else
+        row.style.background = "transparent";
 
     let thirdScreeningFromDate = new Date(fertilizationDate);
     let thirdScreeningToDate = new Date(fertilizationDate);
@@ -82,13 +111,20 @@ function calculate() {
     thirdScreeningToDate.setDate(thirdScreeningToDate.getDate() + thirdScreeningWeeksTo * 7 + 7);
     document.getElementById("thirdScreeningFrom").innerHTML = dateToGermanString(thirdScreeningFromDate);
     document.getElementById("thirdScreeningTo").innerHTML = dateToGermanString(thirdScreeningToDate);
+    row = document.getElementById("thirdScreeningRow");
+    if (today >= thirdScreeningToDate)
+        row.style.background = "tomato";
+    else if (today >= thirdScreeningFromDate)
+        row.style.background = "orange";
+    else
+        row.style.background = "transparent";
 }
 
 function calcDaysTillBirth(birthDate) {
     return Math.round(Math.abs((birthDate - today) / mSecsPerDay));
 }
 
-function calcPregnancyWeek(birthDate) {    
+function calcPregnancyWeek(birthDate) {
     let daysTillBirth = calcDaysTillBirth(birthDate);
     let weeks = Math.floor(daysTillBirth / 7);
     let days = daysTillBirth % 7;

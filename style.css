@@ -14,3 +14,11 @@
 .daysLeft {
     font-size: 22px;
 }
+
+#errorMsg {
+    color: red;
+    font-weight: bold;
+    font-size: 30px;
+    margin-top: 20px;
+    display: none;
+}

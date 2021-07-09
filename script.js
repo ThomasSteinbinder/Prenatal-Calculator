@@ -20,8 +20,12 @@ function calculate() {
     var todayString = new Date().toJSON().slice(0, 10).replace(/-/g, '/');
     today = new Date(todayString)
     if (today > birthDate) {
-        document.write("?");
+        document.getElementById("infoDiv").style.display = "none"
+        document.getElementById("dateList").style.display = "none"
+        document.getElementById("errorMsg").style.display = "block"
         return;
+    } else {
+        document.getElementById("errorMsg").style.display = "none"
     }
 
     let pregnancyWeek = calcPregnancyWeek(birthDate);
@@ -130,10 +134,6 @@ function calcPregnancyWeek(birthDate) {
     let days = daysTillBirth % 7;
     let pregnancyWeek = pregnancyWeeks - weeks;
     return pregnancyWeek;
-
-    // 
-    // var daysDif = Math.round((birthDate.getTime - today) / mSecsPerDay);
-    // console.log(daysDif);
 }
 
 function dateFromUnformattedString(birthDateString) {

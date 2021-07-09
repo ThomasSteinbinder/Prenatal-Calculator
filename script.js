@@ -1,8 +1,8 @@
 const mSecsPerDay = 1000 * 60 * 60 * 24;
 const pregnancyWeeks = 40;
 
-let firstSemesterWeeksFrom = 13;
-let firstSemesterWeeksTo = 14;
+let firstTrimesterWeeksFrom = 13;
+let firstTrimesterWeeksTo = 14;
 let chorionicWeeksFrom = 13;
 let chorionicWeeksTo = 14;
 let malformationWeeksFrom = 21;
@@ -38,7 +38,7 @@ function calculate() {
     document.getElementById("infoDiv").style.display = "block"
     document.getElementById("dateList").style.display = "block"
 
-    document.getElementById("firstSemesterWeeks").innerHTML = firstSemesterWeeksFrom + "-" + firstSemesterWeeksTo;
+    document.getElementById("firstTrimesterWeeks").innerHTML = firstTrimesterWeeksFrom + "-" + firstTrimesterWeeksTo;
     document.getElementById("chorionicWeeks").innerHTML = chorionicWeeksFrom + "-" + chorionicWeeksTo;
     document.getElementById("malformationWeeks").innerHTML = malformationWeeksFrom + "-" + malformationWeeksTo;
     document.getElementById("amniocentesisWeeks").innerHTML = amniocentesisWeeksFrom + "-" + amniocentesisWeeksTo;
@@ -48,12 +48,12 @@ function calculate() {
     let fertilizationDate = new Date();
     fertilizationDate.setDate(fertilizationDate.getDate() - daysPregnantTotal);
 
-    let firstSemesterFromDate = new Date(fertilizationDate);
-    let firstSemesterToDate = new Date(fertilizationDate);
-    firstSemesterFromDate.setDate(firstSemesterFromDate.getDate() + firstSemesterWeeksFrom * 7);
-    firstSemesterToDate.setDate(firstSemesterToDate.getDate() + firstSemesterWeeksTo * 7 + 7);
-    document.getElementById("firstSemesterFrom").innerHTML = dateToGermanString(firstSemesterFromDate);
-    document.getElementById("firstSemesterTo").innerHTML = dateToGermanString(firstSemesterToDate);
+    let firstTrimesterFromDate = new Date(fertilizationDate);
+    let firstTrimesterToDate = new Date(fertilizationDate);
+    firstTrimesterFromDate.setDate(firstTrimesterFromDate.getDate() + firstTrimesterWeeksFrom * 7);
+    firstTrimesterToDate.setDate(firstTrimesterToDate.getDate() + firstTrimesterWeeksTo * 7 + 7);
+    document.getElementById("firstTrimesterFrom").innerHTML = dateToGermanString(firstTrimesterFromDate);
+    document.getElementById("firstTrimesterTo").innerHTML = dateToGermanString(firstTrimesterToDate);
 
     let chorionicFromDate = new Date(fertilizationDate);
     let chorionicToDate = new Date(fertilizationDate);

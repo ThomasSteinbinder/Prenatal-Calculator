@@ -19,6 +19,7 @@ function calculate() {
     let birthDate = dateFromUnformattedString(birthDateString);
     var todayString = new Date().toJSON().slice(0, 10).replace(/-/g, '/');
     today = new Date(todayString)
+    today.setMilliseconds(0);
     if (today > birthDate) {
         document.getElementById("infoDiv").style.display = "none"
         document.getElementById("dateList").style.display = "none"
@@ -49,13 +50,13 @@ function calculate() {
     document.getElementById("thirdScreeningWeeks").innerHTML = thirdScreeningWeeksFrom + "-" + thirdScreeningWeeksTo;
 
 
-    let fertilizationDate = new Date();
+    let fertilizationDate = new Date(new Date().toDateString());
     fertilizationDate.setDate(fertilizationDate.getDate() - daysPregnantTotal);
 
     let firstTrimesterFromDate = new Date(fertilizationDate);
     let firstTrimesterToDate = new Date(fertilizationDate);
-    firstTrimesterFromDate.setDate(firstTrimesterFromDate.getDate() + firstTrimesterWeeksFrom * 7);
-    firstTrimesterToDate.setDate(firstTrimesterToDate.getDate() + firstTrimesterWeeksTo * 7 + 7);
+    firstTrimesterFromDate.setDate(firstTrimesterFromDate.getDate() + (firstTrimesterWeeksFrom - 1) * 7);
+    firstTrimesterToDate.setDate(firstTrimesterToDate.getDate() + firstTrimesterWeeksTo * 7 - 1);
     document.getElementById("firstTrimesterFrom").innerHTML = dateToGermanString(firstTrimesterFromDate);
     document.getElementById("firstTrimesterTo").innerHTML = dateToGermanString(firstTrimesterToDate);
     let row = document.getElementById("firstTrimesterRow");
@@ -69,8 +70,8 @@ function calculate() {
 
     let chorionicFromDate = new Date(fertilizationDate);
     let chorionicToDate = new Date(fertilizationDate);
-    chorionicFromDate.setDate(chorionicFromDate.getDate() + chorionicWeeksFrom * 7);
-    chorionicToDate.setDate(chorionicToDate.getDate() + chorionicWeeksTo * 7 + 7);
+    chorionicFromDate.setDate(chorionicFromDate.getDate() + (chorionicWeeksFrom - 1) * 7);
+    chorionicToDate.setDate(chorionicToDate.getDate() + chorionicWeeksTo * 7 - 1);
     document.getElementById("chorionicFrom").innerHTML = dateToGermanString(chorionicFromDate);
     document.getElementById("chorionicTo").innerHTML = dateToGermanString(chorionicToDate);
     row = document.getElementById("chorionicRow");
@@ -83,8 +84,8 @@ function calculate() {
 
     let malformationFromDate = new Date(fertilizationDate);
     let malformationToDate = new Date(fertilizationDate);
-    malformationFromDate.setDate(malformationFromDate.getDate() + malformationWeeksFrom * 7);
-    malformationToDate.setDate(malformationToDate.getDate() + malformationWeeksTo * 7 + 7);
+    malformationFromDate.setDate(malformationFromDate.getDate() + (malformationWeeksFrom - 1) * 7);
+    malformationToDate.setDate(malformationToDate.getDate() + malformationWeeksTo * 7 - 1);
     document.getElementById("malformationFrom").innerHTML = dateToGermanString(malformationFromDate);
     document.getElementById("malformationTo").innerHTML = dateToGermanString(malformationToDate);
     row = document.getElementById("malformationRow");
@@ -97,8 +98,8 @@ function calculate() {
 
     let amniocentesisFromDate = new Date(fertilizationDate);
     let amniocentesisToDate = new Date(fertilizationDate);
-    amniocentesisFromDate.setDate(amniocentesisFromDate.getDate() + amniocentesisWeeksFrom * 7);
-    amniocentesisToDate.setDate(amniocentesisToDate.getDate() + amniocentesisWeeksTo * 7 + 7);
+    amniocentesisFromDate.setDate(amniocentesisFromDate.getDate() + (amniocentesisWeeksFrom - 1) * 7);
+    amniocentesisToDate.setDate(amniocentesisToDate.getDate() + amniocentesisWeeksTo * 7 - 1);
     document.getElementById("amniocentesisFrom").innerHTML = dateToGermanString(amniocentesisFromDate);
     document.getElementById("amniocentesisTo").innerHTML = dateToGermanString(amniocentesisToDate);
     row = document.getElementById("amniocentesisRow");
@@ -111,8 +112,8 @@ function calculate() {
 
     let thirdScreeningFromDate = new Date(fertilizationDate);
     let thirdScreeningToDate = new Date(fertilizationDate);
-    thirdScreeningFromDate.setDate(thirdScreeningFromDate.getDate() + thirdScreeningWeeksFrom * 7);
-    thirdScreeningToDate.setDate(thirdScreeningToDate.getDate() + thirdScreeningWeeksTo * 7 + 7);
+    thirdScreeningFromDate.setDate(thirdScreeningFromDate.getDate() + (thirdScreeningWeeksFrom - 1) * 7);
+    thirdScreeningToDate.setDate(thirdScreeningToDate.getDate() + thirdScreeningWeeksTo * 7 - 1);
     document.getElementById("thirdScreeningFrom").innerHTML = dateToGermanString(thirdScreeningFromDate);
     document.getElementById("thirdScreeningTo").innerHTML = dateToGermanString(thirdScreeningToDate);
     row = document.getElementById("thirdScreeningRow");
@@ -130,9 +131,9 @@ function calcDaysTillBirth(birthDate) {
 
 function calcPregnancyWeek(birthDate) {
     let daysTillBirth = calcDaysTillBirth(birthDate);
-    let weeks = Math.floor(daysTillBirth / 7);
+    let weeks = Math.ceil(daysTillBirth / 7);
     let days = daysTillBirth % 7;
-    let pregnancyWeek = pregnancyWeeks - weeks;
+    let pregnancyWeek = pregnancyWeeks - weeks + 1;
     return pregnancyWeek;
 }
 

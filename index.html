@@ -34,7 +34,11 @@
                     <h1>Pränatal</h1>
                     <p></p>
                     <div class="form-group" style="margin-top: 20px">
-                        <label class="control-label" for="date">Geburtstermin:</label>
+                        <!-- <label class="control-label" for="date">Berechnungsgrundlage:</label> -->
+                        <select class="form-select" style="margin-bottom: 10px;" aria-label="Default select example" id="dateTypeSelect">
+                            <option selected value="birth">Voraussichtlicher Geburtstermin:</option>
+                            <option value="period">Erster Tag der letzten Regel:</option>
+                        </select>
                         <input class="form-control" id="date" name="date" placeholder="MM/DD/YYY" type="text" />
                         <button onclick="calculate()" style="margin-top: 20px"> Berechnen </button>
                     </div>
@@ -84,7 +88,7 @@
                         </tr>
                         <tr id="chorionicRow">
                             <td>Chorionzottenbiopsie / CVS</td>
-                            <td id ="chorionicWeeks"></td>
+                            <td id="chorionicWeeks"></td>
                             <td id="chorionicFrom"></td>
                             <td id="chorionicTo"></td>
                         </tr>
@@ -93,7 +97,7 @@
                             <td id="malformationWeeks"></td>
                             <td id="malformationFrom"></td>
                             <td id="malformationTo"></td>
-                        </tr>                        
+                        </tr>
                         <tr id="amniocentesisRow">
                             <td>Amniozentese</td>
                             <td id="amniocentesisWeeks"></td>

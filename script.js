@@ -62,7 +62,7 @@ function calculate() {
     document.getElementById("firstTrimesterFrom").innerHTML = dateToGermanString(firstTrimesterFromDate);
     document.getElementById("firstTrimesterTo").innerHTML = dateToGermanString(firstTrimesterToDate);
     let row = document.getElementById("firstTrimesterRow");
-    if (today >= firstTrimesterToDate)
+    if (today > firstTrimesterToDate)
         row.style.background = "tomato";
     else if (today >= firstTrimesterFromDate)
         row.style.background = "orange";
@@ -77,7 +77,7 @@ function calculate() {
     document.getElementById("chorionicFrom").innerHTML = dateToGermanString(chorionicFromDate);
     document.getElementById("chorionicTo").innerHTML = dateToGermanString(chorionicToDate);
     row = document.getElementById("chorionicRow");
-    if (today >= chorionicToDate)
+    if (today > chorionicToDate)
         row.style.background = "tomato";
     else if (today >= chorionicFromDate)
         row.style.background = "orange";
@@ -91,7 +91,7 @@ function calculate() {
     document.getElementById("malformationFrom").innerHTML = dateToGermanString(malformationFromDate);
     document.getElementById("malformationTo").innerHTML = dateToGermanString(malformationToDate);
     row = document.getElementById("malformationRow");
-    if (today >= malformationToDate)
+    if (today > malformationToDate)
         row.style.background = "tomato";
     else if (today >= malformationFromDate)
         row.style.background = "orange";
@@ -105,7 +105,7 @@ function calculate() {
     document.getElementById("amniocentesisFrom").innerHTML = dateToGermanString(amniocentesisFromDate);
     document.getElementById("amniocentesisTo").innerHTML = dateToGermanString(amniocentesisToDate);
     row = document.getElementById("amniocentesisRow");
-    if (today >= amniocentesisToDate)
+    if (today > amniocentesisToDate)
         row.style.background = "tomato";
     else if (today >= amniocentesisFromDate)
         row.style.background = "orange";
@@ -119,7 +119,7 @@ function calculate() {
     document.getElementById("thirdScreeningFrom").innerHTML = dateToGermanString(thirdScreeningFromDate);
     document.getElementById("thirdScreeningTo").innerHTML = dateToGermanString(thirdScreeningToDate);
     row = document.getElementById("thirdScreeningRow");
-    if (today >= thirdScreeningToDate)
+    if (today > thirdScreeningToDate)
         row.style.background = "tomato";
     else if (today >= thirdScreeningFromDate)
         row.style.background = "orange";

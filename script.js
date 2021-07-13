@@ -22,7 +22,7 @@ function calculate() {
     var todayString = new Date().toJSON().slice(0, 10).replace(/-/g, '/');
     today = new Date(todayString)
     today.setMilliseconds(0); // remove time from date
-    if (today > birthDate || isNaN(birthDate)) {
+    if (isNaN(birthDate)) {
         document.getElementById("infoDiv").style.display = "none"
         document.getElementById("dateList").style.display = "none"
         document.getElementById("errorMsg").style.display = "block"
@@ -35,14 +35,18 @@ function calculate() {
 
     let pregnancyWeek = calcPregnancyWeek(birthDate);
     let daysTillBirth = calcDaysTillBirth(birthDate);
-    let weeksUntil = Math.floor(daysTillBirth / 7);
+    let weeksUntil = daysTillBirth > 0 ?
+        Math.floor(daysTillBirth / 7) :
+        Math.ceil(daysTillBirth / 7);
     let daysUntil = daysTillBirth % 7;
     let daysPregnantTotal = 40 * 7 - daysTillBirth;
-    let weeksPregnant = Math.floor(daysPregnantTotal / 7);
+    let weeksPregnant = daysPregnantTotal > 0 ?
+        Math.floor(daysPregnantTotal / 7) :
+        Math.ceil(daysPregnantTotal / 7);
     let daysPregnant = daysPregnantTotal % 7;
     document.getElementById("pregnancyWeek").innerHTML = pregnancyWeek;
     document.getElementById("weeksPregnant").innerHTML = "(" + weeksPregnant + " Wochen + " + daysPregnant + " Tage)";
-    document.getElementById("daysLeft").innerHTML = "noch " + weeksUntil + " Woche(n) und " + daysUntil + " Tag(e) &#128118;";
+    document.getElementById("daysLeft").innerHTML = "noch " + weeksUntil + " Wochen und " + daysUntil + " Tage &#128118;";
 
     document.getElementById("firstTrimesterWeeks").innerHTML = firstTrimesterWeeksFrom + "-" + firstTrimesterWeeksTo;
     document.getElementById("chorionicWeeks").innerHTML = chorionicWeeksFrom + "-" + chorionicWeeksTo;
@@ -127,13 +131,11 @@ function calculate() {
 }
 
 function calcDaysTillBirth(birthDate) {
-    return (birthDate - today) / mSecsPerDay;
-    // Math.round(Math.abs(
+    return Math.round((birthDate - today) / mSecsPerDay);
 }
 
 function calcPregnancyWeek(birthDate) {
     let daysTillBirth = calcDaysTillBirth(birthDate);
-    console.log(daysTillBirth);
     let weeks = Math.ceil(daysTillBirth / 7);
     let days = daysTillBirth % 7;
     let pregnancyWeek = pregnancyWeeks - weeks + 1;

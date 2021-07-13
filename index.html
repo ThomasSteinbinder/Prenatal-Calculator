@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en">
+<html class="h-100" lang="de">
 
 <head>
     <!-- Required meta tags -->
@@ -24,28 +24,24 @@
     <title>Pränatal</title>
 </head>
 
-<body>
-    <div class="container">
-        <div class="row">
-            <div class="col">
-            </div>
+<body class="d-flex flex-column h-100">
+    <div class="container flex-shrink-0">
+        <div class="row justify-content-center mt-1">
             <div class="col-12 col-md-6 col-xl-4">
                 <div class="text-center">
                     <h1>Pränatal</h1>
                     <p></p>
                     <div class="form-group" style="margin-top: 20px">
-                        <!-- <label class="control-label" for="date">Berechnungsgrundlage:</label> -->
                         <select class="form-select" style="margin-bottom: 10px;" aria-label="Default select example"
                             id="dateTypeSelect">
-                            <option selected value="birth">Voraussichtlicher Geburtstermin:</option>
+                            <option value="birth" selected>Voraussichtlicher Geburtstermin:</option>
                             <option value="period">Erster Tag der letzten Regel:</option>
                         </select>
                         <input class="form-control" id="date" name="date" placeholder="MM/DD/YYY" type="text" />
-                        <button onclick="calculate()" style="margin-top: 20px"> Berechnen </button>
+                        <button class="btn btn-primary" onclick="calculate()" style="margin-top: 20px"> Berechnen
+                        </button>
                     </div>
                 </div>
-            </div>
-            <div class="col">
             </div>
         </div>
 
@@ -117,6 +113,14 @@
         </div>
 
     </div>
+
+    <footer class="footer py-3 bg-light" style="margin-top: auto;">
+        <div class="container">
+            <span class="text-muted">
+                Copyright © Thomas Steinbinder 2021
+            </span>
+        </div>
+    </footer>
 </body>
 
 <script>

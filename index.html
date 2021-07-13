@@ -31,14 +31,13 @@
                 <div class="text-center">
                     <h1>Pränatal</h1>
                     <p></p>
-                    <div class="form-group" style="margin-top: 20px">
-                        <select class="form-select" style="margin-bottom: 10px;" aria-label="Default select example"
-                            id="dateTypeSelect">
+                    <div class="form-group">
+                        <select class="form-select mb-2" id="dateTypeSelect">
                             <option value="birth" selected>Voraussichtlicher Geburtstermin:</option>
                             <option value="period">Erster Tag der letzten Regel:</option>
                         </select>
-                        <input class="form-control" id="date" name="date" placeholder="MM/DD/YYY" type="text" />
-                        <button class="btn btn-primary" onclick="calculate()" style="margin-top: 20px"> Berechnen
+                        <input class="form-control" id="date" name="date" placeholder="Datum" type="text" />
+                        <button class="btn btn-primary mt-2" onclick="calculate()" > Berechnen
                         </button>
                     </div>
                 </div>
@@ -50,71 +49,73 @@
             Datum prüfen! <br>
             &#128118;
         </div>
-        <div class="row" id="infoDiv" style="margin-top: 30px; display: none;">
-            <div class="col">
-            </div>
-            <div class="col">
-                <div class="text-center">
-                    <p>in Woche</p>
-                    <p id="pregnancyWeek" class=pregnancyWeek>42</p>
-                    <p id="weeksPregnant"></p>
-                    <p id="daysLeft" class="daysLeft">noch 4 Wochen und 3 Tage</p>
+        <div id="calculatedStuff">
+            <div class="row mt-5">
+                <div class="col">
+                </div>
+                <div class="col">
+                    <div class="text-center">
+                        <p>in Woche</p>
+                        <p id="pregnancyWeek" class=pregnancyWeek>42</p>
+                        <p id="weeksPregnant"></p>
+                        <p id="daysLeft" class="daysLeft">noch 4 Wochen und 3 Tage</p>
+                    </div>
+                </div>
+                <div class="col">
                 </div>
             </div>
-            <div class="col">
-            </div>
-        </div>
-
-        <div class="row" id="dateList" style="margin-top: 20px; display: none; margin-top: 50px;">
-            <div class="col">
-                <table class="table">
-                    <thead>
-                        <tr>
-                            <th scope="col">Termin</th>
-                            <th scope="col">In Woche/n</th>
-                            <th scope="col">Frühestes Datum</th>
-                            <th scope="col">Spätestes Datum</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr id="firstTrimesterRow">
-                            <td>Ersttrimester Screening / Nackenfaltenmessung</td>
-                            <td id="firstTrimesterWeeks"></td>
-                            <td id="firstTrimesterFrom"></td>
-                            <td id="firstTrimesterTo"></td>
-                        </tr>
-                        <tr id="chorionicRow">
-                            <td>Chorionzottenbiopsie / CVS</td>
-                            <td id="chorionicWeeks"></td>
-                            <td id="chorionicFrom"></td>
-                            <td id="chorionicTo"></td>
-                        </tr>
-                        <tr id="malformationRow">
-                            <td>Fehlbildungsauschluss / FBA / Großer Ultraschall / Feindiagnostik</td>
-                            <td id="malformationWeeks"></td>
-                            <td id="malformationFrom"></td>
-                            <td id="malformationTo"></td>
-                        </tr>
-                        <tr id="amniocentesisRow">
-                            <td>Amniozentese</td>
-                            <td id="amniocentesisWeeks"></td>
-                            <td id="amniocentesisFrom"></td>
-                            <td id="amniocentesisTo"></td>
-                        </tr>
-                        <tr id="thirdScreeningRow">
-                            <td>3. Screening / Verlaufskontrolle</td>
-                            <td id="thirdScreeningWeeks"></td>
-                            <td id="thirdScreeningFrom"></td>
-                            <td id="thirdScreeningTo"></td>
-                        </tr>
-                    </tbody>
-                </table>
+    
+            <div class="row mt-5">
+                <div class="col">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th scope="col">Termin</th>
+                                <th scope="col">In Woche/n</th>
+                                <th scope="col">Frühestes Datum</th>
+                                <th scope="col">Spätestes Datum</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr id="firstTrimesterRow">
+                                <td>Ersttrimester Screening / Nackenfaltenmessung</td>
+                                <td id="firstTrimesterWeeks"></td>
+                                <td id="firstTrimesterFrom"></td>
+                                <td id="firstTrimesterTo"></td>
+                            </tr>
+                            <tr id="chorionicRow">
+                                <td>Chorionzottenbiopsie / CVS</td>
+                                <td id="chorionicWeeks"></td>
+                                <td id="chorionicFrom"></td>
+                                <td id="chorionicTo"></td>
+                            </tr>
+                            <tr id="malformationRow">
+                                <td>Fehlbildungsauschluss / FBA / Großer Ultraschall / Feindiagnostik</td>
+                                <td id="malformationWeeks"></td>
+                                <td id="malformationFrom"></td>
+                                <td id="malformationTo"></td>
+                            </tr>
+                            <tr id="amniocentesisRow">
+                                <td>Amniozentese</td>
+                                <td id="amniocentesisWeeks"></td>
+                                <td id="amniocentesisFrom"></td>
+                                <td id="amniocentesisTo"></td>
+                            </tr>
+                            <tr id="thirdScreeningRow">
+                                <td>3. Screening / Verlaufskontrolle</td>
+                                <td id="thirdScreeningWeeks"></td>
+                                <td id="thirdScreeningFrom"></td>
+                                <td id="thirdScreeningTo"></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
             </div>
         </div>
 
     </div>
 
-    <footer class="footer py-3 bg-light" style="margin-top: auto;">
+    <footer class="footer py-3 bg-light mt-auto">
         <div class="container">
             <span class="text-muted">
                 Copyright © Thomas Steinbinder 2021

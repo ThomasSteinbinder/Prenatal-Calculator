@@ -21,15 +21,12 @@ function calculate() {
     }
     var todayString = new Date().toJSON().slice(0, 10).replace(/-/g, '/');
     today = new Date(todayString)
-    today.setMilliseconds(0); // remove time from date
     if (isNaN(birthDate)) {
-        document.getElementById("infoDiv").style.display = "none"
-        document.getElementById("dateList").style.display = "none"
+        document.getElementById("calculatedStuff").style.display = "none"
         document.getElementById("errorMsg").style.display = "block"
         return;
     } else {
-        document.getElementById("infoDiv").style.display = "block"
-        document.getElementById("dateList").style.display = "block"
+        document.getElementById("calculatedStuff").style.display = "block"
         document.getElementById("errorMsg").style.display = "none"
     }
 

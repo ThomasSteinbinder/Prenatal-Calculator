@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="icon" href="./images/baby.png"/>
+    <link rel="icon" href="./images/baby.png" />
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
@@ -17,7 +17,7 @@
     <script type="text/javascript"
         src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/js/bootstrap-datepicker.min.js"></script>
 
-    <script src="./script.js"></script>
+    <script type="module" src="./script.js"></script>
     <link rel="stylesheet" href="./style.css">
     <title>Pränatal Rechner</title>
 </head>
@@ -31,7 +31,7 @@
                     <p></p>
                     <div class="form-group">
                         <select class="form-select mb-2" id="dateTypeSelect">
-                            <option value="birth" selected>Voraussichtlicher Geburtstermin:</option>
+                            <option value="birth" selected>Entbindungstermin:</option>
                             <option value="period">Erster Tag der letzten Regel:</option>
                         </select>
                         <input class="form-control" id="date" name="date" placeholder="Datum" type="text" />
@@ -68,7 +68,7 @@
                     <table class="table">
                         <thead>
                             <tr>
-                                <th scope="col">Termin</th>
+                                <th scope="col">Diagnostik</th>
                                 <th scope="col">In Woche/n</th>
                                 <th scope="col">Frühestes Datum</th>
                                 <th scope="col">Spätestes Datum</th>

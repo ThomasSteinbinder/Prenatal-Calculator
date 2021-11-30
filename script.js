@@ -38,7 +38,6 @@ window.calculate = function () {
             '</td><td>' + dateToGermanString(pregnancy.firstDayOfPregnancyWeek(exam.fromWeek)) +
             '</td><td>' + dateToGermanString(pregnancy.lastDayOfPregnancyWeek(exam.toWeek)) + '</td></tr>';
     });
-    console.log(tableHtml);
     $('#examsTable').html(tableHtml);
 }
 

@@ -36,7 +36,10 @@ window.calculate = function () {
         tableHtml += '<tr><td>' + exam.name +
             '</td><td>' + exam.fromWeek + "-" + exam.toWeek +
             '</td><td>' + dateToGermanString(pregnancy.firstDayOfPregnancyWeek(exam.fromWeek)) +
-            '</td><td>' + dateToGermanString(pregnancy.lastDayOfPregnancyWeek(exam.toWeek)) + '</td></tr>';
+            '</td><td>' + dateToGermanString(pregnancy.lastDayOfPregnancyWeek(exam.toWeek)) + 
+            '</td><td> <a href="' + exam.link + '" target="_blank" rel="noopener noreferrer">' + 
+                            '<i class="bi bi-info-circle-fill h4" style="color: ' + exam.color + ';"></i>' + 
+                        '</a> </td></tr>';
     });
     $('#examsTable').html(tableHtml);
 }

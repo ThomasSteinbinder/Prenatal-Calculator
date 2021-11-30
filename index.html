@@ -74,7 +74,7 @@
                                 <th scope="col">Spätestes Datum</th>
                             </tr>
                         </thead>
-                        <tbody>
+                        <tbody id="examsTable">
                             <tr id="firstTrimesterRow">
                                 <td>Ersttrimester Screening / Nackenfaltenmessung</td>
                                 <td id="firstTrimesterWeeks"></td>
@@ -110,14 +110,36 @@
                 </div>
             </div>
         </div>
-
     </div>
 
     <footer class="footer py-3 bg-light mt-auto">
         <div class="container">
-            <span class="text-muted">
-                Copyright © Thomas Steinbinder 2021
-            </span>
+            <div class="row">
+                <div class="col-6">
+                    <span class="text-muted">
+                        Copyright © Thomas Steinbinder 2021
+                    </span>
+                </div>
+                <div class="col-6">
+                    <div class="float-end">
+                        <div class="row">
+                            <div class="col">
+                                Unterstütze dieses Projekt
+                            </div>
+                            <div class="col">
+                                <form action="https://www.paypal.com/donate" method="post" target="_top">
+                                    <input type="hidden" name="hosted_button_id" value="KLQQ7F35EV7M4" />
+                                    <input type="image" src="https://www.paypalobjects.com/de_DE/DE/i/btn/btn_donateCC_LG.gif"
+                                        border="0" name="submit" title="PayPal - The safer, easier way to pay online!"
+                                        alt="Spenden mit dem PayPal-Button" />
+                                    <img alt="" border="0" src="https://www.paypal.com/de_DE/i/scr/pixel.gif" width="1"
+                                        height="1" />
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </footer>
 </body>

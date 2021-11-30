@@ -15,6 +15,18 @@ export default class PregnancyDates {
         this.fertilizationDate = new Date(new Date().toDateString());
         this.fertilizationDate.setDate(this.fertilizationDate.getDate() - this.daysPregnantTotal);
     }
+
+    firstDayOfPregnancyWeek(pregnancyWeek) {
+        let date = new Date(this.fertilizationDate);
+        date.setDate(date.getDate() + (pregnancyWeek - 1) * 7 );
+        return date;
+    }
+
+    lastDayOfPregnancyWeek(pregnancyWeek) {
+        let date = new Date(this.fertilizationDate);
+        date.setDate(date.getDate() + pregnancyWeek * 7 - 1);
+        return date;
+    }
 }
 
 function calcDaysTillBirth(birthDate) {

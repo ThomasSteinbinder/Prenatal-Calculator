@@ -9,11 +9,11 @@ window.today = new Date(window.todayString)
 window.calculate = function () {
     let birthDateString = document.getElementById("date").value;
     let birthDate = dateFromUnformattedString(birthDateString);
-    const pregnancy = new PregnancyDates(birthDate);
-
     if (document.getElementById("dateTypeSelect").value == "period") {
         birthDate.setDate(birthDate.getDate() + pregnancyWeeks * 7);
     }
+    const pregnancy = new PregnancyDates(birthDate);
+
     var todayString = new Date().toJSON().slice(0, 10).replace(/-/g, '/');
     today = new Date(todayString)
     if (isNaN(birthDate)) {

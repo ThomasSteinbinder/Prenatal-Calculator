@@ -23,20 +23,27 @@
     <title>Pränatal Rechner</title>
 </head>
 
-<body class="d-flex flex-column h-100">
+<body class="d-flex flex-column h-100" onload="onLoad()">
     <div class="container flex-shrink-0">
-        <div class="row justify-content-center mt-2">
-            <div class="col-12 col-md-6 col-xl-4">
+        <div class=" text-center text-md-end mt-2 mb-3 mb-md-0">
+            <img src="./images/de.png" alt="de" onclick="selectLanguage('de')">
+            <img src="./images/en.png" alt="de" onclick="selectLanguage('en')">
+        </div>
+        <div class="row justify-content-center">
+            <div class="col-12 col-md-6 col-xl-6">
                 <div class="text-center">
-                    <h2>Pränatal Rechner</h2>
+                    <h2 class="language-reload" id="headline">Pränatal Rechner</h2>
                     <p></p>
                     <div class="form-group">
                         <select class="form-select mb-2" id="dateTypeSelect">
-                            <option value="birth" selected>Entbindungstermin:</option>
-                            <option value="period">Erster Tag der letzten Regel:</option>
+                            <option value="birth" selected class="language-reload" id="birtDate">Entbindungstermin:
+                            </option>
+                            <option value="period" class="language-reload" id="lastPeriod">Erster Tag der letzten Regel:
+                            </option>
                         </select>
                         <input class="form-control" id="date" name="date" placeholder="Datum" type="text" />
-                        <button class="btn btn-primary mt-2" onclick="calculate()"> Berechnen
+                        <button class="btn btn-primary mt-2 language-reload" id="calculate" onclick="calculate()">
+                            Berechnen
                         </button>
                     </div>
                 </div>
@@ -54,10 +61,10 @@
                 </div>
                 <div class="col">
                     <div class="text-center">
-                        <p>in Woche</p>
+                        <p class="language-reload" id="inWeek">in Woche</p>
                         <p id="pregnancyWeek" class=pregnancyWeek>42</p>
                         <p id="weeksPregnant"></p>
-                        <p id="daysLeft" class="daysLeft">noch 4 Wochen und 3 Tage</p>
+                        <p id="daysLeft">noch 4 Wochen und 3 Tage</p>
                     </div>
                 </div>
                 <div class="col">
@@ -69,11 +76,11 @@
                     <table class="table">
                         <thead>
                             <tr>
-                                <th scope="col">Diagnostik</th>
-                                <th scope="col">In Woche/n</th>
-                                <th scope="col">Frühestes Datum</th>
-                                <th scope="col">Spätestes Datum</th>
-                                <th scope="col">Infos</th>
+                                <th scope="col" class="language-reload" id="examination">Diagnostik</th>
+                                <th scope="col" class="language-reload" id="inWeeks">In Woche/n</th>
+                                <th scope="col" class="language-reload" id="earliestDate">Frühestes Datum</th>
+                                <th scope="col" class="language-reload" id="latestDate">Spätestes Datum</th>
+                                <th scope="col" class="language-reload" id="infos">Infos</th>
                             </tr>
                         </thead>
                         <tbody id="examsTable">
@@ -86,33 +93,10 @@
 
     <footer class="footer py-3 bg-light mt-auto">
         <div class="container">
-            <div class="row">
-                <div class="col-6">
-                    <span class="text-muted">
-                        Copyright © Thomas Steinbinder 2021
-                    </span>
-                </div>
-                <div class="col-6">
-                    <div class="row">
-                        <div class="col">
-                            <div class="float-end mb-2 mb-sm-0">
-                                Unterstütze dieses Projekt:
-                            </div>
-                        </div>
-                        <div class="col">
-                            <form action="https://www.paypal.com/donate" method="post" target="_top">
-                                <input type="hidden" name="hosted_button_id" value="KLQQ7F35EV7M4" />
-                                <input type="image"
-                                    src="https://www.paypalobjects.com/de_DE/DE/i/btn/btn_donateCC_LG.gif" border="0"
-                                    name="submit" title="PayPal - The safer, easier way to pay online!"
-                                    alt="Spenden mit dem PayPal-Button" />
-                                <img alt="" border="0" src="https://www.paypal.com/de_DE/i/scr/pixel.gif" width="1"
-                                    height="1" />
-                            </form>
-                        </div>
-                    </div>
-                </div>
-            </div>
+            <span class="text-muted">
+                Copyright © Thomas Steinbinder 2021
+            </span>
+        </div>
         </div>
     </footer>
 </body>

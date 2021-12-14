@@ -1,12 +1,39 @@
+import GermanLang from "./localization/lang-de.js"
+import EnglishLang from "./localization/lang-en.js"
 import PregnancyDates from "./pregnancyCalculator.js";
-import Examinations from "./examinations.js"
+import GetExaminations from "./examinations.js"
 
 window.mSecsPerDay = 1000 * 60 * 60 * 24;
 window.pregnancyWeeks = 40;
 window.todayString = new Date().toJSON().slice(0, 10).replace(/-/g, '/');
 window.today = new Date(window.todayString)
+window.lang;
+window.langString;
+window.examinations;
+
+
+window.onLoad = function () {
+    window.lang = GermanLang;
+    selectLanguage("de");
+}
+
+window.selectLanguage = function (language) {
+    window.langString = language;
+    if (language == "de") {
+        window.lang = GermanLang;
+    } else if (language == "en") {
+        window.lang = EnglishLang;
+    }
+    $(".language-reload").each(function () {
+        $(this).html(window.lang[$(this).attr('id')]);
+    });
+    if (document.getElementById("date").value) {
+        calculate();
+    }
+}
 
 window.calculate = function () {
+    window.examinations = GetExaminations();
     let birthDateString = document.getElementById("date").value;
     let birthDate = dateFromUnformattedString(birthDateString);
     if (document.getElementById("dateTypeSelect").value == "period") {
@@ -26,20 +53,24 @@ window.calculate = function () {
     }
 
     $("#pregnancyWeek").html(pregnancy.pregnancyWeek);
-    $("#weeksPregnant").html("(" + pregnancy.weeksPregnant + " Wochen + " + pregnancy.daysPregnant + " Tage)");
-    $("#daysLeft").html("noch " + pregnancy.weeksUntil + " Wochen und " + pregnancy.daysUntil + " Tage &#128118;");
+    $("#weeksPregnant").html("(" + pregnancy.weeksPregnant + " " + lang["weeks"] + " " + pregnancy.daysPregnant + " " + lang["days"] + ")");
+    if (langString == "de") {
+        $("#daysLeft").html("noch " + pregnancy.weeksUntil + " Wochen und " + pregnancy.daysUntil + " Tage &#128118;");
+    } else if (langString == "en") {
+        $("#daysLeft").html(pregnancy.weeksUntil + " weeks and " + pregnancy.daysUntil + " days left &#128118;");
+    }
 
 
     $("#examsTable tr").remove();
     let tableHtml = '';
-    Examinations.forEach(exam => {
+    examinations.forEach(exam => {
         tableHtml += '<tr><td>' + exam.name +
             '</td><td>' + exam.fromWeek + "-" + exam.toWeek +
             '</td><td>' + dateToGermanString(pregnancy.firstDayOfPregnancyWeek(exam.fromWeek)) +
-            '</td><td>' + dateToGermanString(pregnancy.lastDayOfPregnancyWeek(exam.toWeek)) + 
-            '</td><td> <a href="' + exam.link + '" target="_blank" rel="noopener noreferrer">' + 
-                            '<i class="bi bi-info-circle-fill h4" style="color: ' + exam.color + ';"></i>' + 
-                        '</a> </td></tr>';
+            '</td><td>' + dateToGermanString(pregnancy.lastDayOfPregnancyWeek(exam.toWeek)) +
+            '</td><td> <a href="' + exam.link + '" target="_blank" rel="noopener noreferrer">' +
+            '<i class="bi bi-info-circle-fill h4" style="color: ' + exam.color + ';"></i>' +
+            '</a> </td></tr>';
     });
     $('#examsTable').html(tableHtml);
 }
@@ -55,11 +86,11 @@ function dateToGermanString(date) {
     let day = date.getDate().toString();
     let month = (date.getMonth() + 1).toString();
     let year = date.getFullYear().toString();
-    
+
     // add leading 0's
     day = (day.length > 1) ? day : "0" + day;
     month = (month.length > 1) ? month : "0" + month;
     year = (year.length > 1) ? year : "0" + year;
-    
+
     return day + "." + month + "." + year;
 }

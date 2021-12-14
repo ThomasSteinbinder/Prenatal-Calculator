@@ -25,11 +25,18 @@
 
 <body class="d-flex flex-column h-100" onload="onLoad()">
     <div class="container flex-shrink-0">
-        <div class=" text-center text-md-end mt-2 mb-3 mb-md-0">
-            <img src="./images/de.png" alt="de" onclick="selectLanguage('de')">
-            <img src="./images/en.png" alt="de" onclick="selectLanguage('en')">
+        <div class="row mt-2">
+            <div class="col-4"></div>
+
+            <div class="col-4 text-center">
+                <img width="120px" src="./images/prenatal_logo.png" alt="">
+            </div>
+            <div class="col-4 text-end">
+                <img src="./images/de.png" alt="de" onclick="selectLanguage('de')">
+                <img src="./images/en.png" alt="de" onclick="selectLanguage('en')">
+            </div>
         </div>
-        <div class="row justify-content-center">
+        <div class="row justify-content-center mt-2">
             <div class="col-12 col-md-6 col-xl-6">
                 <div class="text-center">
                     <h2 class="language-reload" id="headline">Pränatal Rechner</h2>

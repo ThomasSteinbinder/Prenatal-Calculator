@@ -1,5 +1,5 @@
 * {
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: 'Rotis Sans Serif';
     font-size: 17px;
 }
 
@@ -25,6 +25,15 @@
 
 #calculatedStuff {
     display: none;
+}
+
+.examDescription {
+    margin: 10px;
+    font-size: 15px;
+}
+
+.examDescription i {
+    margin-right: 10px;
 }
 
 /* .fixed-row-bottom { 

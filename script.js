@@ -63,16 +63,34 @@ window.calculate = function () {
 
     $("#examsTable tr").remove();
     let tableHtml = '';
+    let examIndex = 0;
     examinations.forEach(exam => {
-        tableHtml += '<tr><td>' + exam.name +
+        tableHtml += '<tr role="button" id="exam' + examIndex + '"><td>' + exam.name +
             '</td><td>' + getWeekRangeString(exam.fromWeek, exam.toWeek) +
             '</td><td>' + dateToGermanString(pregnancy.firstDayOfPregnancyWeek(exam.fromWeek, exam.fromWeekOffset)) +
             '</td><td>' + dateToGermanString(pregnancy.lastDayOfPregnancyWeek(exam.toWeek)) +
             '</td><td> <a href="' + exam.link + '" target="_blank" rel="noopener noreferrer">' +
             '<i class="bi bi-info-circle-fill h4" style="color: ' + exam.color + ';"></i>' +
-            '</a> </td></tr>';
+            '</a> </td>' +
+            '<td><i id="chevron' + examIndex + '" class="bi bi-chevron-up h4"></i></td></tr>' +
+            '<tr><td colspan=5 id="descri' + examIndex + '" style="display: none;"> <p class="examDescription">&#10551; ' + exam.description + '</p> </td></tr>';
+            examIndex++;
     });
     $('#examsTable').html(tableHtml);
+
+    for (let i = 0; i < examinations.length; i++) {
+        $('#exam' + i).click(function() {
+            if ($('#descri' + i).is(":visible")) {
+                $('#descri' + i).hide();
+                $('#chevron' + i).removeClass("bi-chevron-down");
+                $('#chevron' + i).addClass("bi-chevron-up");
+            } else {
+                $('#descri' + i).show();
+                $('#chevron' + i).removeClass("bi-chevron-up");
+                $('#chevron' + i).addClass("bi-chevron-down");
+            }
+        });
+    }
 }
 
 function dateFromUnformattedString(dateString) {

@@ -36,6 +36,10 @@
     margin-right: 10px;
 }
 
+.bold {
+    font-weight: bold;
+}
+
 /* .fixed-row-bottom { 
     position: fixed;
     bottom: 0;

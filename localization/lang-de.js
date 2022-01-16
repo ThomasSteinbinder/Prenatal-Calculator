@@ -1,5 +1,5 @@
 const lang = {
-    headline: "Schwangerschafts Rechner",
+    headline: "Schwangerschaftrechner",
     birtDate: "Entbindungstermin",
     lastPeriod: "Erster Tag der letzten Regel",
     examination: "Diagnostik",
@@ -16,6 +16,7 @@ const lang = {
     examFBAName: "Fehlbildungsauschluss / FBA / Großer Ultraschall / Feindiagnostik",
     examAmniocentesisName : "Amniozentese",
     examNIPTName: "Nicht-invasiver Pränataltest (NIPT)",
+    appointment: "Zur Terminvereinbarung",
 }
 
 export default lang

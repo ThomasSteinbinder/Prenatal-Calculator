@@ -16,7 +16,7 @@ const lang = {
     examFBAName: "Fehlbildungsauschluss / FBA / Großer Ultraschall / Feindiagnostik",
     examAmniocentesisName : "Amniozentese",
     examNIPTName: "Nicht-invasiver Pränataltest (NIPT)",
-    appointment: "Zur Terminvereinbarung",
+    appointment: "&#128467; Zur Terminvereinbarung",
 }
 
 export default lang

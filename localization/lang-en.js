@@ -16,7 +16,7 @@ const lang = {
     examFBAName: "Organ screening",
     examAmniocentesisName : "Amniocentesis",
     examNIPTName: "Noninvasive Prenatal Test (NIPT)",
-    appointment: "Make an appointment",
+    appointment: "&#128467; Make an appointment",
 }
 
 export default lang

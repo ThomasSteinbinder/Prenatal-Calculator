@@ -16,16 +16,21 @@ export default class PregnancyDates {
         this.fertilizationDate.setDate(this.fertilizationDate.getDate() - this.daysPregnantTotal);
     }
 
-    firstDayOfPregnancyWeek(pregnancyWeek) {
+    firstDayOfPregnancyWeek(pregnancyWeek, offset) {
         let date = new Date(this.fertilizationDate);
-        date.setDate(date.getDate() + (pregnancyWeek - 1) * 7 );
+        date.setDate(date.getDate() + (pregnancyWeek - 1) * 7);
+        date.setDate(date.getDate() + offset);
         return date;
     }
 
     lastDayOfPregnancyWeek(pregnancyWeek) {
-        let date = new Date(this.fertilizationDate);
-        date.setDate(date.getDate() + pregnancyWeek * 7 - 1);
-        return date;
+        if (pregnancyWeek == null) {
+            return null
+        } else {
+            let date = new Date(this.fertilizationDate);
+            date.setDate(date.getDate() + pregnancyWeek * 7 - 1);
+            return date;
+        }
     }
 }
 

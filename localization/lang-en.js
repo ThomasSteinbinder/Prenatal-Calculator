@@ -1,6 +1,6 @@
 const lang = {
     headline: "Pregnancy Calculator",
-    birtDate: "Date of birth",
+    birtDate: "Due date",
     lastPeriod: "First day of last period",
     examination: "Examination",
     inWeek: "in week",
@@ -16,7 +16,13 @@ const lang = {
     examFBAName: "Organ screening",
     examAmniocentesisName : "Amniocentesis",
     examNIPTName: "Noninvasive Prenatal Test (NIPT)",
-    appointment: "&#128467; Make an appointment",
+    examFirstTrimesterDescription: "Please note that the First trimester screening is best possible between weeks 12+5 and 13+6.",
+    examCVSDescription: "Please note that the Chorionic villus sampling is best possible from week 12+5 ",
+    examFBADescription: "Please note that the Organ screening is best possible between weeks 20+0 an 21+6. In case of ambiguities, please contact us via phone for and appointment: +49-89-1307440.",
+    examAmniocentesisDescription : "Please note that the Amniocentesis is best possible from week 15+0.",
+    examNIPTDescription: "Please note that the Noninvasive Prenatal Test (NIPT) is best possible from week 10+0.",
+    appointment: "&#128467; Make an appointment*",
+    appointmentInfo: "*If the time spans we suggest are not possible for you, or you have any qustions, please contact us via phone for an appointment:",
 }
 
 export default lang

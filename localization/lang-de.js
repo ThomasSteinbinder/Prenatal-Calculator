@@ -16,7 +16,13 @@ const lang = {
     examFBAName: "Fehlbildungsauschluss / FBA / Großer Ultraschall / Feindiagnostik",
     examAmniocentesisName : "Amniozentese",
     examNIPTName: "Nicht-invasiver Pränataltest (NIPT)",
-    appointment: "&#128467; Zur Terminvereinbarung",
+    examFirstTrimesterDescription: "Bitte beachten Sie, dass das Ersttrimesterscreening (ETS) zwischen der Woche 12+5 bis 13+6 am besten möglich ist.",
+    examCVSDescription: "Bitte beachten Sie, dass die Chorionzottenbiopsie ab der Woche 12+5 bis am besten möglich ist.",
+    examFBADescription: "Bitte beachten Sie, dass der Fehlbildungsausschluss möglichst nur zwischen der Woche 20+0 bis 21+6 vorgenommen wird. Bei Unklarheiten vereinbaren Sie bitte einen Termin per Telefon unter 089-1307440.",
+    examAmniocentesisDescription : "Bitte beachten Sie, dass die Amniocenthese am besten ab der Woche 15+0 möglich ist.",
+    examNIPTDescription: "Bitte beachten Sie, dass der Nicht-invasive Pränataltest (NIPT) ab der Woche 10+0 möglich ist.",
+    appointment: "&#128467; Zur Terminvereinbarung*",
+    appointmentInfo: "*Sofern die von uns vorgeschlagenen Zeiträume nicht möglich sind, oder Unklarheiten bestehen, vereinbaren Sie Ihren Termin bitte telefonisch unter:",
 }
 
 export default lang

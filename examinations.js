@@ -1,14 +1,15 @@
 class Examination {
-    constructor(name, fromWeek, toWeek, description, link, color) {
+    constructor(name, fromWeek, toWeek, description, link, color, fromWeekOffset) {
         this.name = name;
         this.fromWeek = fromWeek;
         this.toWeek = toWeek;
         this.description = description;
         this.link = link;
         this.color = color;
+        this.fromWeekOffset = fromWeekOffset;
     }
 }
-export default function() {
+export function getExaminations() {
     return [
         new Examination(
             window.lang["examFirstTrimesterName"],
@@ -16,15 +17,17 @@ export default function() {
             14,
             "TODO",
             "https://de.praenatal-medizin.de/files/2021/09/Flyer_Einscha%CC%88tzung-maternaler-Risiken-im-ersten-Trimenon_12-2020.pdf",
-            "#C9FCFD"
+            "#C9FCFD",
+            5,
         ),
         new Examination(
             window.lang["examCVSName"],
             13,
-            15,
+            null,
             "TODO",
             "https://de.praenatal-medizin.de/files/2021/09/Flyer_Praenatale-Diagnostik-aus-Chorionzotten-oder-Plazentazotten_12-2020.pdf",
-            "#FA66A1"
+            "#FA66A1",
+            0,
         ),
         new Examination(
             window.lang["examFBAName"],
@@ -32,23 +35,40 @@ export default function() {
             22,
             "TODO",
             "https://de.praenatal-medizin.de/diagnostik/sonografie/ii-trimenon-fba/",
-            "#8D9EF7"
+            "#8D9EF7",
+            0,
         ),
         new Examination(
             window.lang["examAmniocentesisName"],
             16,
-            40,
+            null,
             "TODO",
             "https://de.praenatal-medizin.de/files/2021/09/Flyer_Praenatale-Diagnostik-aus-Fruchtwasser_12-2020.pdf",
-            "#FBACF8"
+            "#FBACF8",
+            0,
         ),
         new Examination(
             window.lang["examNIPTName"],
-            10,
-            40,
+            11,
+            null,
             "",
             "https://de.praenatal-medizin.de/diagnostik/genetik/nipt/",
-            "#FBB06A"
+            "#FBB06A",
+            0,
         )
     ]
-} 
+}
+
+export function getWeekRangeString(weekFrom, weekTo) {
+    if (weekFrom == null) {
+        if (weekTo) {
+            return "bis " + weekTo;
+        }
+    } else if(weekTo == null) {
+        if (weekFrom) {
+            return "ab " + weekFrom;
+        }
+    } else {
+        return weekFrom + "-" + weekTo
+    }
+}

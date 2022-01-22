@@ -12,6 +12,15 @@ class Examination {
 export function getExaminations() {
     return [
         new Examination(
+            window.lang["examNIPTName"],
+            11,
+            null,
+            window.lang["examNIPTDescription"],
+            "https://de.praenatal-medizin.de/diagnostik/genetik/nipt/",
+            "#FBB06A",
+            0,
+        ),
+        new Examination(
             window.lang["examFirstTrimesterName"],
             13,
             14,
@@ -30,15 +39,6 @@ export function getExaminations() {
             5,
         ),
         new Examination(
-            window.lang["examFBAName"],
-            21,
-            22,
-            window.lang["examFBADescription"],
-            "https://de.praenatal-medizin.de/diagnostik/sonografie/ii-trimenon-fba/",
-            "#8D9EF7",
-            0,
-        ),
-        new Examination(
             window.lang["examAmniocentesisName"],
             16,
             null,
@@ -48,14 +48,14 @@ export function getExaminations() {
             0,
         ),
         new Examination(
-            window.lang["examNIPTName"],
-            11,
-            null,
-            window.lang["examNIPTDescription"],
-            "https://de.praenatal-medizin.de/diagnostik/genetik/nipt/",
-            "#FBB06A",
+            window.lang["examFBAName"],
+            21,
+            22,
+            window.lang["examFBADescription"],
+            "https://de.praenatal-medizin.de/diagnostik/sonografie/ii-trimenon-fba/",
+            "#8D9EF7",
             0,
-        )
+        ),
     ]
 }
 

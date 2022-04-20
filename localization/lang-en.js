@@ -11,6 +11,8 @@ const lang = {
     infos: "info",
     weeks: "weeks",
     days: "days",
+    from: "from",
+    until: "until",
     examFirstTrimesterName: "First trimester screening",
     examCVSName: "Chorionic villus sampling",
     examFBAName: "Organ screening",

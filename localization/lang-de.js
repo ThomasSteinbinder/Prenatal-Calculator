@@ -11,6 +11,8 @@ const lang = {
     infos: "Infos",
     weeks: "Wochen",
     days: "Tage",
+    from: "ab",
+    until: "bis",
     examFirstTrimesterName: "Ersttrimester Screening / Nackentransparenzmessung",
     examCVSName: "Chorionzottenbiopsie",
     examFBAName: "Organultraschall",

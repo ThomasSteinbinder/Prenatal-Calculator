@@ -62,11 +62,11 @@ export function getExaminations() {
 export function getWeekRangeString(weekFrom, weekTo) {
     if (weekFrom == null) {
         if (weekTo) {
-            return "bis " + weekTo;
+            return window.lang["until"] + " " + weekTo;
         }
     } else if(weekTo == null) {
         if (weekFrom) {
-            return "ab " + weekFrom;
+            return window.lang["from"] + " " + weekFrom;
         }
     } else {
         return weekFrom + "-" + weekTo
